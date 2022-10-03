@@ -8,8 +8,13 @@ public class GameManager : MonoBehaviour
 {
     //these lists have all the dialogue for each phase of questions
     public List<string> phaseOneDialogue;
+    public List<string> phaseTwoDialogue;
 
-    //tracks the line we're on in that phase
+    //holds the phase we're currently going through
+    List<string> currentDialogue;
+
+    //tracks the current phase and the line we're on in that phase
+    int phaseIndex = 0;
     int dialogueIndex = 0;
 
     //game object for all buttons
@@ -29,12 +34,13 @@ public class GameManager : MonoBehaviour
         //turn off the choice buttons
         choiceOne.SetActive(false);
         choiceTwo.SetActive(false);
+        currentDialogue = phaseOneDialogue;
         SetDialogueText();
     }
 
     void SetDialogueText() {
         //set the dialogue component to show the line we're on
-        dialogueBox.text = phaseOneDialogue[dialogueIndex];
+        dialogueBox.text = currentDialogue[dialogueIndex];
     }
 
     public void AdvanceDialog()
@@ -43,7 +49,7 @@ public class GameManager : MonoBehaviour
         dialogueIndex++;
         SetDialogueText();
         //if we're on the last line of dialogue
-        if (dialogueIndex == phaseOneDialogue.Count - 1)
+        if (dialogueIndex == currentDialogue.Count - 1)
         {
             //show the choices
             SetupChoices();
@@ -71,7 +77,22 @@ public class GameManager : MonoBehaviour
     }
 
     void GoToNextPhase() {
-
+        //turn on the next button and turn off the choice buttons
+        nextButton.SetActive(true);
+        choiceOne.SetActive(false);
+        choiceTwo.SetActive(false);
+        //reset the dialogue line counter
+        dialogueIndex = 0;
+        //depending on the phase
+        //run an animation and determine what the next phase is
+        switch (phaseIndex)
+        {
+            case 0:
+                currentDialogue = phaseTwoDialogue;
+                phaseIndex = 1;
+                break;
+        }
+        SetDialogueText();
     }
 
 }

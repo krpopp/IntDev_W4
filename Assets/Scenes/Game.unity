@@ -784,6 +784,10 @@ MonoBehaviour:
   - 'Clowny: Honk!'
   - 'Facey: Haha, yeah, anyway, we''re going to ask some questions.'
   - Ready to start?
+  phaseTwoDialogue:
+  - 'Facey: Hmm, ok.'
+  - 'Facey: We want to know:'
+  - 'Facey: Have you ever slipped on a banana peel?'
   choiceOne: {fileID: 1100031863}
   choiceTwo: {fileID: 352756044}
   nextButton: {fileID: 1343810850}
