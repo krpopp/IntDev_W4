@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //these lists have all the dialogue for each phase of questions
+    public List<string> phaseOneDialogue;
+
+    //tracks the line we're on in that phase
+    int dialogueIndex = 0;
+
     //game object for all buttons
     public GameObject choiceOne;
     public GameObject choiceTwo;
@@ -25,7 +31,13 @@ public class GameManager : MonoBehaviour
 
     void SetDialogueText() {
         //set the dialogue component to show the line we're on
-        dialogueBox.text = "Hey, it's some dialogue!";
+        dialogueBox.text = phaseOneDialogue[dialogueIndex];
+    }
+
+    public void AdvanceDialog()
+    {
+        dialogueIndex++;
+        SetDialogueText();
     }
 
     void SetupChoices() {

@@ -766,6 +766,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6cd46e1ad4540bf92852101c604e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phaseOneDialogue:
+  - 'Facey: Hey!'
+  - 'Facey: Clowny and I are going to give you a little test.'
+  - 'Clowny: Honk!'
+  - 'Facey: Haha, yeah, anyway, we''re going to ask some questions.'
+  - Ready to start?
   choiceOne: {fileID: 1100031863}
   choiceTwo: {fileID: 352756044}
   nextButton: {fileID: 1343810850}
