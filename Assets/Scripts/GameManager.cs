@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public List<string> phaseTwoDialogue;
     public List<string> phaseThreeDialogue;
     public List<string> phaseFourDialogue;
-    public List<string> phaseFiveDialogue;
 
     //holds the phase we're currently going through
     List<string> currentDialogue;
@@ -35,6 +34,10 @@ public class GameManager : MonoBehaviour
     public string clownMessage;
     public string notAClownMessage;
 
+    //animator components for each face
+    public Animator faceyAnim;
+    public Animator clownyAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
         //start the dialogue
         currentDialogue = phaseOneDialogue;
         dialogueBox.text = currentDialogue[dialogueIndex];
+        faceyAnim.SetTrigger("isTalking");
     }
 
     void SetDialogueText()
@@ -113,6 +117,7 @@ public class GameManager : MonoBehaviour
         switch (phaseIndex)
         {
             case 0:
+                faceyAnim.SetTrigger("isTalking");
                 currentDialogue = phaseTwoDialogue;
                 phaseIndex = 1;
                 break;
@@ -121,11 +126,12 @@ public class GameManager : MonoBehaviour
                 phaseIndex = 2;
                 break;
             case 2:
+                clownyAnim.SetTrigger("isTalking");
                 currentDialogue = phaseFourDialogue;
                 phaseIndex = 3;
                 break;
             case 3:
-                currentDialogue = phaseFiveDialogue;
+                faceyAnim.SetTrigger("isTalking");
                 phaseIndex = 4;
                 GiveResults();
                 break;
@@ -145,4 +151,5 @@ public class GameManager : MonoBehaviour
             dialogueBox.text = notAClownMessage;
         }
     }
+
 }

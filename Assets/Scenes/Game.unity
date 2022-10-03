@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 760631622}
   - component: {fileID: 760631624}
   - component: {fileID: 760631623}
+  - component: {fileID: 760631625}
   m_Layer: 5
   m_Name: Facey
   m_TagString: Untagged
@@ -587,6 +588,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760631621}
   m_CullTransparentMesh: 1
+--- !u!95 &760631625
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760631621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6db8c9faaa5764eca993585b3e307c32, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &875842781
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,13 +819,14 @@ MonoBehaviour:
   - 'Facey: Oh, looks like clowny has a question.'
   - 'Clowny: Honk honk.'
   - 'Clowny: Honk honk, honk honk honk honk?'
-  phaseFiveDialogue: []
   choiceOne: {fileID: 1100031863}
   choiceTwo: {fileID: 352756044}
   nextButton: {fileID: 1343810850}
   dialogueBox: {fileID: 1371581285}
-  clownMessage: Looksl ike you're a clown!
-  notAClownMessage: 'Bad news: you are not a clown.'
+  clownMessage: Looks like you're a clown!
+  notAClownMessage: 'Bad news: You''re not a clown.'
+  faceyAnim: {fileID: 760631625}
+  clownyAnim: {fileID: 2024936181}
 --- !u!1 &1100031863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1479,7 @@ GameObject:
   - component: {fileID: 2024936178}
   - component: {fileID: 2024936180}
   - component: {fileID: 2024936179}
+  - component: {fileID: 2024936181}
   m_Layer: 5
   m_Name: Clowny
   m_TagString: Untagged
@@ -1519,6 +1542,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024936177}
   m_CullTransparentMesh: 1
+--- !u!95 &2024936181
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024936177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43ec306fb27fe47218a3059a1a7ef6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2101489299
 GameObject:
   m_ObjectHideFlags: 0
