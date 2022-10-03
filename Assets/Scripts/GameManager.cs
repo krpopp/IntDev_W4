@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     //these lists have all the dialogue for each phase of questions
     public List<string> phaseOneDialogue;
     public List<string> phaseTwoDialogue;
+    public List<string> phaseThreeDialogue;
+    public List<string> phaseFourDialogue;
+    public List<string> phaseFiveDialogue;
 
     //holds the phase we're currently going through
     List<string> currentDialogue;
@@ -34,29 +37,40 @@ public class GameManager : MonoBehaviour
         //turn off the choice buttons
         choiceOne.SetActive(false);
         choiceTwo.SetActive(false);
+        //start the dialogue
         currentDialogue = phaseOneDialogue;
-        SetDialogueText();
+        dialogueBox.text = currentDialogue[dialogueIndex];
     }
 
-    void SetDialogueText() {
-        //set the dialogue component to show the line we're on
-        dialogueBox.text = currentDialogue[dialogueIndex];
+    void SetDialogueText()
+    {
+        //if we haven't gotten our results yet
+        if (phaseIndex < 4)
+        {
+            //set the dialogue component to show the line we're on
+            dialogueBox.text = currentDialogue[dialogueIndex];
+        }
     }
 
     public void AdvanceDialog()
     {
-        //go to the next line
-        dialogueIndex++;
-        SetDialogueText();
-        //if we're on the last line of dialogue
-        if (dialogueIndex == currentDialogue.Count - 1)
+        //if we haven't gotten our results yet
+        if (phaseIndex < 4)
         {
-            //show the choices
-            SetupChoices();
+            //go to the next line
+            dialogueIndex++;
+            SetDialogueText();
+            //if we're on the last line of dialogue
+            if (dialogueIndex == currentDialogue.Count - 1)
+            {
+                //show the choices
+                SetupChoices();
+            }
         }
     }
 
-    void SetupChoices() {
+    void SetupChoices()
+    {
         //turn off the next button and turn on the choice buttons
         nextButton.SetActive(false);
         choiceOne.SetActive(true);
@@ -76,7 +90,8 @@ public class GameManager : MonoBehaviour
         GoToNextPhase();
     }
 
-    void GoToNextPhase() {
+    void GoToNextPhase()
+    {
         //turn on the next button and turn off the choice buttons
         nextButton.SetActive(true);
         choiceOne.SetActive(false);
@@ -90,6 +105,18 @@ public class GameManager : MonoBehaviour
             case 0:
                 currentDialogue = phaseTwoDialogue;
                 phaseIndex = 1;
+                break;
+            case 1:
+                currentDialogue = phaseThreeDialogue;
+                phaseIndex = 2;
+                break;
+            case 2:
+                currentDialogue = phaseFourDialogue;
+                phaseIndex = 3;
+                break;
+            case 3:
+                currentDialogue = phaseFiveDialogue;
+                phaseIndex = 4;
                 break;
         }
         SetDialogueText();

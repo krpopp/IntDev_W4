@@ -788,6 +788,17 @@ MonoBehaviour:
   - 'Facey: Hmm, ok.'
   - 'Facey: We want to know:'
   - 'Facey: Have you ever slipped on a banana peel?'
+  phaseThreeDialogue:
+  - 'Facey: Interesting...'
+  - 'Clowny: Honk!'
+  - 'Facey: Right, next question:'
+  - 'Facey: Do you wear a lot of makeup?'
+  phaseFourDialogue:
+  - 'Clowny: Honk!'
+  - 'Facey: Oh, looks like clowny has a question.'
+  - 'Clowny: Honk honk.'
+  - 'Clowny: Honk honk, honk honk honk honk?'
+  phaseFiveDialogue: []
   choiceOne: {fileID: 1100031863}
   choiceTwo: {fileID: 352756044}
   nextButton: {fileID: 1343810850}
