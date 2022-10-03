@@ -803,6 +803,8 @@ MonoBehaviour:
   choiceTwo: {fileID: 352756044}
   nextButton: {fileID: 1343810850}
   dialogueBox: {fileID: 1371581285}
+  clownMessage: Looksl ike you're a clown!
+  notAClownMessage: 'Bad news: you are not a clown.'
 --- !u!1 &1100031863
 GameObject:
   m_ObjectHideFlags: 0

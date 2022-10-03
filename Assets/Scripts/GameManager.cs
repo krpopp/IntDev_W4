@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     //"score" for how much of a clown u r
     int clownyLove = 0;
 
+    //text for results of the quiz
+    public string clownMessage;
+    public string notAClownMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +70,12 @@ public class GameManager : MonoBehaviour
                 //show the choices
                 SetupChoices();
             }
+        }
+        //if we've seen our results
+        else
+        {
+            //go to the last scene
+            SceneManager.LoadScene("Main");
         }
     }
 
@@ -117,9 +127,22 @@ public class GameManager : MonoBehaviour
             case 3:
                 currentDialogue = phaseFiveDialogue;
                 phaseIndex = 4;
+                GiveResults();
                 break;
         }
         SetDialogueText();
     }
 
+    void GiveResults()
+    {
+        //if the clown score is higher than 2, then u r a clown
+        if (clownyLove > 2)
+        {
+            dialogueBox.text = clownMessage;
+        }
+        else
+        {
+            dialogueBox.text = notAClownMessage;
+        }
+    }
 }
